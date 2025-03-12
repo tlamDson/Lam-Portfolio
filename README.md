@@ -1,4 +1,4 @@
-# vCard - Personal portfolio
+# Animated Portfolio Website
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/xeventech/animated-portfolio-website)
 ![GitHub stars](https://img.shields.io/github/stars/xeventech/animated-portfolio-website?style=social)
