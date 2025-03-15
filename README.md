@@ -5,7 +5,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/xeventech/animated-portfolio-website?style=social)
 [![YouTube Video Views](https://img.shields.io/youtube/views/7dWL5GivD8k?style=social)](https://youtu.be/7dWL5GivD8k)
 
-A fully responsive and awesome personal portfolio website, responsive for all devices.
+A fully responsive animated personal portfolio website, responsive for all devices.
 
 ## Demo
 
