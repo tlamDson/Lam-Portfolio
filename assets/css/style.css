@@ -999,6 +999,8 @@ form {
   -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
   -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
   -khtml-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  border-radius: 50%;
 }
 /*
 ----------------------------
