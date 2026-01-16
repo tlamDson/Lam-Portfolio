@@ -433,7 +433,11 @@ $(function submitAnimation() {
               }, 2000);
             }, 2200);
           } else {
-            throw new Error("Form submission failed");
+            // Log the actual error response
+            return response.json().then((data) => {
+              console.error("Formspree error:", data);
+              throw new Error(data.error || "Form submission failed");
+            });
           }
         })
         .catch((error) => {
@@ -442,7 +446,7 @@ $(function submitAnimation() {
           $("#lnch_btn").removeClass("launching");
           swal(
             "Error!",
-            "Something went wrong. Please try again later.",
+            error.message || "Something went wrong. Please try again later.",
             "error",
           );
         });
