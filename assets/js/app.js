@@ -137,7 +137,7 @@ let footer = $(`
              <div class="form-header">
                 <h6 class="display">Get in Touch</h6>
               </div>
-                <form name="form1" action="#" method="POST" accept-charset="UTF-8" >
+                <form name="form1" id="contact-form" action="https://formspree.io/f/xyzgwqkr" method="POST" accept-charset="UTF-8" >
                   <input id="name" type="text" name="name" placeholder="Your Name" required/>
                   <input id="email" type="email" name="email" placeholder="Email Address" required/>                  
                   <textarea id="textArea" name="message" placeholder="Type your Message" required></textarea>
@@ -287,7 +287,7 @@ $(document).ready(function () {
       if ($(this).prop("href") == window.location.href) {
         $(this).addClass("current-link");
       }
-    }
+    },
   );
 });
 
@@ -393,14 +393,52 @@ $(function submitAnimation() {
         $("#lnch").addClass("launching").text("Sending");
         $("#lnch_btn").addClass("launching");
       }, 0);
-      setTimeout(function () {
-        $("#lnch").addClass("launched").text("SENT");
-        $("#lnch_btn").addClass("launched");
-      }, 1500);
-      // Wait for 2.2 seconds so that the send button animation can be fully played before submitting the form
-      setTimeout(() => {
-        document.querySelector("form").submit();
-      }, 2200);
+
+      // Submit form using Fetch API to Formspree
+      const form = document.querySelector("#contact-form");
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            setTimeout(function () {
+              $("#lnch").addClass("launched").text("SENT");
+              $("#lnch_btn").addClass("launched");
+            }, 1500);
+            setTimeout(function () {
+              swal(
+                "Success!",
+                "Your message has been sent successfully!",
+                "success",
+              );
+              // Reset the form
+              form.reset();
+              // Reset the button after a delay
+              setTimeout(function () {
+                $("#lnch").removeClass("launching launched").text("Send");
+                $("#lnch_btn").removeClass("launching launched");
+              }, 2000);
+            }, 2200);
+          } else {
+            throw new Error("Form submission failed");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          $("#lnch").removeClass("launching").text("Send");
+          $("#lnch_btn").removeClass("launching");
+          swal(
+            "Error!",
+            "Something went wrong. Please try again later.",
+            "error",
+          );
+        });
     }
   });
 });
