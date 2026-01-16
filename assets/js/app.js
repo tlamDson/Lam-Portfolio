@@ -396,13 +396,20 @@ $(function submitAnimation() {
 
       // Submit form using Fetch API to Formspree
       const form = document.querySelector("#contact-form");
-      const formData = new FormData(form);
+
+      // Send as JSON (recommended by Formspree for AJAX)
+      const data = {
+        name: name.value,
+        email: emailAdress.value,
+        message: text.value,
+      };
 
       fetch(form.action, {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(data),
         headers: {
           Accept: "application/json",
+          "Content-Type": "application/json",
         },
       })
         .then((response) => {
