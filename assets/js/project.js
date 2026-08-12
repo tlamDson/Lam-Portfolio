@@ -7,7 +7,7 @@ const projectcards = document.querySelector(".projectcards");
 const projects = [
   {
     title: "Operating System",
-    cardImage: "assets/images/project-page/os.jpg",
+    cardImage: "assets/images/project-page/os.png",
     description:
       "A UNIX-like kernel implementing core system calls (fork, wait, exit) and thread-safe inter-process communication using block-based bounded queues.",
     tagimg:
@@ -17,7 +17,7 @@ const projects = [
   },
   {
     title: "Custom Shell",
-    cardImage: "assets/images/project-page/shell.jpg",
+    cardImage: "assets/images/project-page/shell.png",
     description:
       "A custom command-line interpreter in C that manages process execution via fork-exec patterns, handles signal interrupts, and supports built-in navigation.",
     tagimg:
@@ -27,13 +27,22 @@ const projects = [
   },
   {
     title: "Dickinson Market",
-    cardImage: "assets/images/project-page/marketplace.jpg",
+    cardImage: "assets/images/project-page/dsonmarket-site.png",
     description:
       "Led a team of 6 developers to build an online marketplace for Dickinson College, serving 2,500+ students and faculty.",
     tagimg: "https://cdn.worldvectorlogo.com/logos/next-js.svg",
     Previewlink:
       "https://www.dickinson.edu/info/20052/sustainability/4423/dickinson_market",
     Githublink: "",
+  },
+  {
+    title: "PlanCare",
+    cardImage: "assets/images/project-page/plancare.png",
+    description:
+      "Agentic travel planner monorepo with AI-powered itinerary generation: React web app, Express API, and BullMQ workers backed by MongoDB and Redis.",
+    tagimg: "https://cdn.worldvectorlogo.com/logos/react-2.svg",
+    Previewlink: "https://plancare-web-omega.vercel.app",
+    Githublink: "https://github.com/tlamDson/plancare",
   },
 ];
 
