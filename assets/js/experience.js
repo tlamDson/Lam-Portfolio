@@ -5,25 +5,32 @@ AOS.init();
 const experiencecards = document.querySelector(".experience-cards");
 const exp = [
   {
+    title: "Software Engineer Intern (Backend & DevOps)",
+    cardImage: "assets/images/experience-page/hbc_nexus_logo.png",
+    place: "HBC Nexus",
+    time: "(June 2026 - Present)",
+    desp: "<li>Owned automated CI/CD pipelines for a B2B computer vision platform, integrating 80+ unit tests into strict quality gates to prevent regressions and block faulty code from reaching production.</li><li>Engineered backend infrastructure for automated on-shelf product detection and classification processing 10,000+ daily shelf images, driving the architectural transition toward a scalable multi-tenant SaaS solution.</li><li>Designed and implemented RESTful APIs using FastAPI and PostgreSQL, building an audit-listing endpoint with pagination, date-range filtering, and strict Pydantic validation for 10 required SKU fields.</li>",
+  },
+  {
     title: "Software Engineer Intern",
-    cardImage: "assets/images/experience-page/Pal_AI.jpg",
+    cardImage: "assets/images/experience-page/Pal_AI.png",
     place: "Pal AI",
-    time: "(October 2025 - Present)",
+    time: "(January 2026 - May 2026)",
     desp: "<li>Engineered the core backend infrastructure for an AI-powered college assisting platform on Supabase, enabling real-time essay analysis for 500+ applicants by designing scalable database schemas.</li><li>Optimized API latency by 70% (400ms to 120ms) by implementing cursor-based pagination and lazy loading for college datasets and chat history.</li><li>Reduced API calls to the primary database by 60% by designing and deploying a Redis-based caching layer for high-traffic endpoints.</li>",
   },
   {
     title: "Software Engineer Intern",
     cardImage: "assets/images/experience-page/USTechBridge.jpg",
     place: "USTechBridge",
-    time: "(November 2025 - Present)",
-    desp: "<li>Engineered a voice-controlled backend service using AWS Bedrock to autonomously manage doctor appointments and complex patient queries.</li><li>Architected a low-latency serverless backend on AWS Lambda using DynamoDB for state and S3 for logging; optimized data retrieval patterns reduced latency by 40% (to sub-200ms) for real-time interactions.</li>",
+    time: "(September 2025 - December 2025)",
+    desp: "<li>Engineered an AI-integrated, voice-controlled backend service using AWS Bedrock to autonomously manage doctor appointments and complex patient queries, ensuring high conversational accuracy and intent resolution.</li><li>Architected a low-latency serverless backend on AWS Lambda using DynamoDB for state and S3 for logging; optimized data retrieval patterns reduced latency by 40% (to sub-200ms) for real-time interactions.</li>",
   },
   {
     title: "Software Engineer Intern",
     cardImage: "assets/images/experience-page/FPT.png",
     place: "FPT Software",
     time: "(May 2025 - September 2025)",
-    desp: "<li>Enabled centralized workflow tracking for 1000+ employees by architecting a scalable RESTful API, successfully processing 3,000+ daily task transactions with optimal data integrity.</li><li>Completed the project 3 weeks ahead of schedule by proactively proposing and implementing an AI-powered workflow validation feature.</li><li>Improved task synchronization speed by 40% by implementing atomic database transactions and batch processing logic.</li>",
+    desp: "<li>Developed a distributed RAG-based workflow automation engine using BullMQ and Redis for high-throughput task orchestration, featuring data processing pipelines and fallback mechanisms to ensure 99.9% system reliability.</li>",
   },
 ];
 
@@ -94,10 +101,11 @@ const hackathonsection = document.querySelector(".hackathon-section");
 const mentor = [];
 
 const showCards3 = () => {
+  if (!hackathonsection) return; // section temporarily commented out in experience.html
   let output = "";
   mentor.forEach(
     ({ title, image, subtitle, desp, href }) =>
-      (output += `  
+      (output += `
       <div class="blog-slider__item swiper-slide">
         <div class="blog-slider__img">
             <img src="${image}" alt="">
