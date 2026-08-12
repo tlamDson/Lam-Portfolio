@@ -4,16 +4,18 @@ const researchTable = document.querySelector(".main");
 
 const research = [
   {
-    title: "Incoming Research - Spring 2026",
-    authors: "Dickinson College",
-    conferences: "Research opportunity starting Spring 2026",
+    title: "Underwater Object Detection with Enhanced YOLOv8",
+    authors: "Water Resources University",
+    conferences: "Machine Learning Research Collaboration",
     researchYr: 2026,
     citebox: "popup1",
-    image: "assets/images/research-page/Dickinson.png",
+    image: "assets/images/research-page/underwaterdection.png",
     citation: {
-      vancouver: "Dickinson College - Incoming Spring 2026",
+      vancouver:
+        "Pham, L. Underwater Object Detection with Enhanced YOLOv8. Water Resources University Research Collaboration, 2026.",
     },
-    abstract: "Research position at Dickinson College beginning Spring 2026.",
+    abstract:
+      "Engineered an enhanced computer vision pipeline using PyTorch, integrating CLAHE preprocessing for low-visibility enhancement and fine-tuning YOLOv8's high-resolution P2 layer to detect small, obscured underwater objects. Outperformed baseline YOLOv8 by achieving an absolute increase of 3.3% in mAP50 (to 84.3%) and 5.9% in mAP50-95 (to 47.9%), while driving Precision to 82.1% (+6.1%) and Recall to 75.9% (+5.9%).",
     absbox: "absPopup1",
   },
 ];
