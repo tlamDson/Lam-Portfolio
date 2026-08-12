@@ -31,12 +31,6 @@ const techStack = [
       "<li>Amazon Web Services (AWS) including Lambda, S3, DynamoDB, and Bedrock for serverless computing, storage, NoSQL database, and AI/ML services</li>",
   },
   {
-    langImage: "assets/images/techstack-page/Linux.png",
-    langName: "Linux",
-    langDesc:
-      "<li>Linux is a family of open-source Unix-like operating systems, widely used for servers, development environments, and cloud infrastructure</li>",
-  },
-  {
     langImage: "assets/images/techstack-page/Redis-Logo.wine.png",
     langName: "Redis",
     langDesc:
@@ -87,18 +81,6 @@ const techStack = [
     langDesc:
       "<li>Socket.io enables real-time, bidirectional and event-based communication between web clients and servers</li>",
   },
-  {
-    langImage: "assets/images/techstack-page/pandas.png",
-    langName: "Pandas",
-    langDesc:
-      "<li>Pandas is a fast, powerful, flexible and easy to use open source data analysis and manipulation library for Python</li>",
-  },
-  {
-    langImage: "assets/images/techstack-page/numpy.png",
-    langName: "NumPy",
-    langDesc:
-      "<li>NumPy is the fundamental package for scientific computing with Python, providing support for large, multi-dimensional arrays and matrices</li>",
-  },
   // Languages
   {
     langImage: "assets/images/techstack-page/typescript.png",
@@ -123,6 +105,25 @@ const techStack = [
     langName: "C",
     langDesc:
       "<li>C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, with a static type system</li>",
+  },
+  // Systems & ML
+  {
+    langImage: "assets/images/techstack-page/docker.png",
+    langName: "Docker",
+    langDesc:
+      "<li>Docker is a platform for building, shipping, and running applications in lightweight, portable containers</li>",
+  },
+  {
+    langImage: "assets/images/techstack-page/fastapi.png",
+    langName: "FastAPI",
+    langDesc:
+      "<li>FastAPI is a modern, high-performance Python web framework for building RESTful APIs, with automatic validation powered by Pydantic</li>",
+  },
+  {
+    langImage: "assets/images/techstack-page/pytorch.jpg",
+    langName: "PyTorch",
+    langDesc:
+      "<li>PyTorch is an open-source machine learning framework used for building and training deep learning models, including computer vision pipelines</li>",
   },
 ];
 
