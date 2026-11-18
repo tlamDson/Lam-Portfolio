@@ -18,9 +18,9 @@ errors = []
 
 # Expected links per card: label -> URL. A label missing here must not render.
 EXPECTED = {
-    "RepoPulse": {
-        "Live demo": "https://tlamdson.github.io/RepoPulse/",
-        "Code": "https://github.com/tlamDson/RepoPulse",
+    "GitHub Analytics Data Pipeline": {
+        "Live demo": "https://tlamdson.github.io/github-analytics-data-pipeline/",
+        "Code": "https://github.com/tlamDson/github-analytics-data-pipeline",
     },
     "Operating System": {"Code": "https://github.com/tlamDson/Operating_System_OSV"},
     "Custom Shell": {"Code": "https://github.com/tlamDson/CustomShell"},
@@ -35,7 +35,7 @@ EXPECTED = {
 # and the master resume). Matched against the visible text, so they cannot hide
 # in an unrendered field.
 FACTS = {
-    "RepoPulse": [
+    "GitHub Analytics Data Pipeline": [
         "hourly", "PySpark", "Delta Lake", "dbt", "GH Archive", "58 repos",
         "0.94 s", "80% less data scanned", "1,492 MB to 290 MB",
         "27 of 27", "0 false alarms", "17-51x faster than Spark",
@@ -91,6 +91,16 @@ js_src = JS.read_text(encoding="utf-8")
 for name, src in ((JS.name, js_src), (PAGE.name, page)):
     for dead in ("myFunction", "myInput"):
         check(dead not in src, f"{name}: dead search code {dead!r} is back")
+# The page's description, og:description and twitter:description name the project
+# by its current name, not RepoPulse (renamed 2026-11-18).
+for attr, key in (("name", "description"), ("property", "og:description"),
+                  ("name", "twitter:description")):
+    m = re.search(rf'<meta {attr}="{re.escape(key)}" content="([^"]*)"', page)
+    check(m is not None, f"{PAGE.name}: <meta {attr}={key!r}> is missing")
+    if m:
+        check("GitHub Analytics Data Pipeline" in m.group(1) and "RepoPulse" not in m.group(1),
+              f"{PAGE.name}: {key} must name 'GitHub Analytics Data Pipeline', not RepoPulse")
+
 check("<h1" not in html, "cards: card titles must not be h1")
 check("PlanCare" not in html and "tlamDson/plancare" not in html,
       "cards: old PlanCare name or plancare GitHub URL is back (repo is TravelPlan)")
@@ -163,9 +173,9 @@ for css in CSS:
             check(not re.search(r"position\s*:\s*(absolute|fixed)", rules),
                   f"{css.name}: '{sel}' lifts the card text over the image")
 
-# The cards lead with RepoPulse.
+# The cards lead with GitHub Analytics Data Pipeline.
 first = re.search(r'<h3 class="title">(.*?)</h3>', html, re.S)
-check(first and strip(first.group(1)) == "RepoPulse", "cards: RepoPulse must be the first card")
+check(first and strip(first.group(1)) == "GitHub Analytics Data Pipeline", "cards: GitHub Analytics Data Pipeline must be the first card")
 check((ROOT / "assets/images/project-page/repopulse.webp").stat().st_size <= 300 * 1024,
       "repopulse.webp is over 300 KB")
 

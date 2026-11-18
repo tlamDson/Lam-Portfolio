@@ -92,7 +92,7 @@ check(line == HERO_LINE, f"hero line must be exactly {HERO_LINE!r}, got {line!r}
 # one number. Stat and note text are pinned, and each number must appear in that
 # project's card data in assets/js/project.js.
 TILES = [
-    ("RepoPulse", "80% less data scanned", "Hourly ELT pipeline on GitHub event data"),
+    ("GitHub Analytics Data Pipeline", "80% less data scanned", "Hourly ELT pipeline on GitHub event data"),
     ("TravelPlan", "61.6% backend test coverage", "Gemini-powered travel planner, web and mobile"),
     ("Operating System", "500 fork/exit cycles", "Process table back to its exact baseline"),
 ]

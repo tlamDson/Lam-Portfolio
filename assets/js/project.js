@@ -6,7 +6,7 @@ const projectcards = document.querySelector(".projectcards");
 // Array of object for projects. A link is shown only when its URL is non-empty.
 const projects = [
   {
-    title: "RepoPulse",
+    title: "GitHub Analytics Data Pipeline",
     cardImage: "assets/images/project-page/repopulse.webp",
     description:
       "Data platform that measures open-source project health from public GitHub events: an hourly PySpark, Delta Lake and dbt pipeline on real GH Archive data for 58 repos, with a public dashboard.",
@@ -17,8 +17,8 @@ const projects = [
       "27 of 27 injected data faults caught, 0 false alarms.",
       "DuckDB 17-51x faster than Spark on the same transform.",
     ],
-    Previewlink: "https://tlamdson.github.io/RepoPulse/",
-    Githublink: "https://github.com/tlamDson/RepoPulse",
+    Previewlink: "https://tlamdson.github.io/github-analytics-data-pipeline/",
+    Githublink: "https://github.com/tlamDson/github-analytics-data-pipeline",
   },
   {
     title: "Operating System",
