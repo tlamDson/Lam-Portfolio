@@ -159,8 +159,9 @@ const techStack = [
 ];
 
 const displayTechStacksCards = () => {
+  // Each card is a direct flex item of .skill-group-cards (no row wrapper, no AOS fade:
+  // AOS.init runs before the cards exist, so a data-aos card would stay invisible).
   const card = (stack) => `
-    <div class="row page-content techstackcards" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="0" data-aos-duration="400"> 
         <div class="tech_card">
             <div class="card_img">
                 <img src ="${stack.langImage}" class="featured_image" alt="${stack.langName} logo">
@@ -176,7 +177,6 @@ const displayTechStacksCards = () => {
             </ul>
             </div>
         </div>
-    </div>
       `;
   techStackCards.innerHTML = techStack
     .map(

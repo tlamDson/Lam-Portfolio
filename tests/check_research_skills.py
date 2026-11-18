@@ -143,6 +143,11 @@ css = (ROOT / "assets/css/techstack.css").read_text(encoding="utf-8")
 for cls in [".skill-group {", ".skill-group-name", ".skill-group-list", ".skill-group-cards"]:
     check(cls in css, f"techstack.css: no rule for {cls.rstrip(' {')}")
 
+# ---------- tech stack page in a real browser: cards visible and laid out at 1366 and 390 px ----------
+out = subprocess.run(["node", str(ROOT / "tests/check_skills_cards.js")], capture_output=True, text=True,
+                     encoding="utf-8", timeout=180)
+check(out.returncode == 0, f"techstack (browser): {(out.stdout + out.stderr).strip()}")
+
 # ---------- research page in a real browser: DETAILS reveals the bullets ----------
 out = subprocess.run(["node", str(ROOT / "tests/check_research_details.js")], capture_output=True, text=True,
                      encoding="utf-8", timeout=180)
