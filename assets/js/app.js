@@ -158,7 +158,7 @@ let footer = $(`
     
 
     <div class="rounded-social-buttons tag">
-    <a class="social-button linkedin" href="https://www.linkedin.com/in/lam-pham-1651b82b7/" target="_blank" >
+    <a class="social-button linkedin" href="https://www.linkedin.com/in/lam-pham-1651b82b7/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
     <!-- svg code for linkedin icon -->
       <svg class="linkedin-icon-footer" xmlns="http://www.w3.org/2000/svg" width="35" viewBox="0 0 24 24" fill="#0e76a8"
         stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
@@ -168,7 +168,7 @@ let footer = $(`
       </svg>
     </a>
 
-    <a class="social-button github" href="https://github.com/tlamDson" target="_blank">
+    <a class="social-button github" href="https://github.com/tlamDson" target="_blank" rel="noopener" aria-label="GitHub profile">
     <!-- SVG code for Github icon -->
     <svg class="github-icon-footer" width="45px" height="45px" viewBox="0 0 300 300">
         <!-- body -->
@@ -191,7 +191,7 @@ let footer = $(`
 
 //"Scroll to top" button
 let upArrow = $(`
-  <button id="btnScrollToTop" onclick="scrollToTop()"><i class="fas fa-2x fa-angle-up"></i></button>
+  <button id="btnScrollToTop" onclick="scrollToTop()" aria-label="Scroll to top"><i class="fas fa-2x fa-angle-up"></i></button>
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
   })
 `);

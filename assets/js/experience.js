@@ -5,43 +5,47 @@ AOS.init();
 const experiencecards = document.querySelector(".experience-cards");
 const exp = [
   {
-    title: "Software Engineer Intern (Backend & DevOps)",
+    title: "AI Engineer Intern",
     cardImage: "assets/images/experience-page/hbc_nexus_logo.png",
+    alt: "HBC Nexus logo",
     place: "HBC Nexus",
-    time: "(June 2026 - Present)",
-    desp: "<li>Owned automated CI/CD pipelines for a B2B computer vision platform, integrating 80+ unit tests into strict quality gates to prevent regressions and block faulty code from reaching production.</li><li>Engineered backend infrastructure for automated on-shelf product detection and classification processing 10,000+ daily shelf images, driving the architectural transition toward a scalable multi-tenant SaaS solution.</li><li>Designed and implemented RESTful APIs using FastAPI and PostgreSQL, building an audit-listing endpoint with pagination, date-range filtering, and strict Pydantic validation for 10 required SKU fields.</li>",
+    time: "(June 2026 - August 2026)",
+    desp: "<li>Scaled a B2B computer vision backend from 10,000 to 50,000 daily images by moving from single-tenant to multi-tenant, reworking tenant routing and authentication, and authoring the Expand &rarr; Backfill &rarr; Contract schema migration that cut the database over without downtime, improving the efficiency of the retail service.</li><li>Cut the full agent test cycle 83% (12 minutes to 2 minutes) across 12 AI agents by parallelizing tests with a GitHub Actions matrix and mocking Kafka, MinIO, and Qdrant to unblock backend work while agents were still in progress.</li><li>Owned the GitHub Actions CI/CD pipeline, identifying failures in 12% of PR runs before they reached production by gating merges on unit and integration tests with an 80% coverage floor against Dockerized staging builds.</li><li>Cut production query time by 60% across 9 FastAPI and PostgreSQL endpoints by designing them to store 3 variable-shape pipeline fields in native JSONB as indexed, queryable columns instead of fully normalizing the schema.</li>",
   },
   {
     title: "Software Engineer Intern",
     cardImage: "assets/images/experience-page/Pal_AI.png",
+    alt: "Pal AI logo",
     place: "Pal AI",
     time: "(January 2026 - May 2026)",
-    desp: "<li>Engineered the core backend infrastructure for an AI-powered college assisting platform on Supabase, enabling real-time essay analysis for 500+ applicants by designing scalable database schemas.</li><li>Optimized API latency by 70% (400ms to 120ms) by implementing cursor-based pagination and lazy loading for college datasets and chat history.</li><li>Reduced API calls to the primary database by 60% by designing and deploying a Redis-based caching layer for high-traffic endpoints.</li>",
+    desp: "<li>Owned backend infrastructure as the sole engineer on Supabase for an AI college advising platform serving 1,500 students, designing the database schemas behind essay analysis and chat.</li><li>Cut chat API latency 70% (400ms to 120ms) with cursor-based pagination and lazy loading, and primary-database queries 60% with a Redis layer caching the context every chat session reloads.</li><li>Held a 97%+ pass rate in production by hardening the chat pipeline against provider outages with queue-paced retries and typed error classification, falling back to prepared responses when the model API failed.</li><li>Improved AI context awareness across over 1,000 PDFs and 5,000+ images by embedding student uploads into pgvector via LlamaParse, letting GPT-4o mini reference them instead of summarizing each file once.</li>",
   },
   {
     title: "Software Engineer Intern",
     cardImage: "assets/images/experience-page/USTechBridge.jpg",
+    alt: "USTechBridge logo",
     place: "USTechBridge",
     time: "(September 2025 - December 2025)",
-    desp: "<li>Engineered an AI-integrated, voice-controlled backend service using AWS Bedrock to autonomously manage doctor appointments and complex patient queries, ensuring high conversational accuracy and intent resolution.</li><li>Architected a low-latency serverless backend on AWS Lambda using DynamoDB for state and S3 for logging; optimized data retrieval patterns reduced latency by 40% (to sub-200ms) for real-time interactions.</li>",
+    desp: "<li>Built a voice-controlled AI agent reaching 95%+ success rate across 5 intent types, integrating Alexa and AWS Bedrock with Lambda and DynamoDB.</li><li>Cut AI usage cost by 57% across 200K monthly requests by benchmarking and shipping tiered model routing that sends booking and rescheduling to Sonnet and 70% of read-only queries to Haiku while holding success rate over 95%.</li><li>Cut intent-recognition error rate from 50% to 1% on a 500-case golden set by adding a pre-parsing step that segments raw transcribed speech before Sonnet synthesizes intent, validated across 5 iterations before deploying.</li>",
   },
   {
     title: "Software Engineer Intern",
     cardImage: "assets/images/experience-page/FPT.png",
+    alt: "FPT Software logo",
     place: "FPT Software",
     time: "(May 2025 - September 2025)",
-    desp: "<li>Developed a distributed RAG-based workflow automation engine using BullMQ and Redis for high-throughput task orchestration, featuring data processing pipelines and fallback mechanisms to ensure 99.9% system reliability.</li>",
+    desp: "<li>Built an AI-assisted travel planner for 3,000+ users in React, Node.js/Express, and MongoDB, grounding Gemini-generated itineraries in real place data.</li><li>Cut hallucinated place suggestions from 20% to under 1% across 50,000+ generated trips by seeding the RAG corpus with Serper-scraped place data across 64 cities (850+ place insights).</li>",
   },
 ];
 
 const showCards2 = () => {
   let output = "";
   exp.forEach(
-    ({ title, cardImage, place, time, desp }) =>
+    ({ title, cardImage, alt, place, time, desp }) =>
       (output += `        
     <div class="col gaap" data-aos="fade-up" data-aos-easing="linear" data-aos-delay="100" data-aos-duration="400"> 
       <div class="card card1">
-        <img src="${cardImage}" class="featured-image"/>
+        <img src="${cardImage}" class="featured-image" alt="${alt}"/>
         <article class="card-body">
           <header>
             <div class="title">
@@ -83,7 +87,7 @@ const showCards = () => {
       (output += `        
       <div class="card volunteerCard" data-aos="fade-down" data-aos-easing="linear" data-aos-delay="100" data-aos-duration="600" style="height: 550px;width:400px">
       
-      <img src="${cardImage}" height="250" width="65" class="card-img" style="border-radius:10px">
+      <img src="${cardImage}" height="250" width="65" class="card-img" style="border-radius:10px" alt="${title} project logo">
       <div class="content">
           <h2 class="volunteerTitle">${title}</h2><br>
           <p class="copy">${description}</p></div>
