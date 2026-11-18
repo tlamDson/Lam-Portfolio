@@ -856,3 +856,69 @@ SVG ANIMATIONS PROJECT PAGE
   animation-duration: 3.3s;
   transform-origin: 785.132px 295.833px;
 }
+
+/* Project card text under the image */
+h1.projects_head {
+  font-size: 2rem;
+}
+
+.card .wrapper {
+  min-height: 14rem;
+}
+
+.card.skill-card {
+  background-color: transparent;
+}
+
+.card .card-body-text {
+  padding: 1rem 0.25rem 0;
+  color: var(--text);
+}
+
+.card .card-body-text .title {
+  padding-bottom: 0.5rem;
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.card .card-desc,
+.card .card-result {
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.card .card-result {
+  font-weight: bold;
+}
+
+.card .card-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.card .card-tags li {
+  font-size: 0.8rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid #bb86fc;
+  border-radius: 999px;
+}
+
+.card .card-links {
+  margin: 0;
+}
+
+.card .card-link {
+  color: #bb86fc;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-right: 1.25rem;
+}
+
+.card .card-link:hover {
+  color: #8f4ef0;
+}
