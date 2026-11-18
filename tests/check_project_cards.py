@@ -91,6 +91,16 @@ js_src = JS.read_text(encoding="utf-8")
 for name, src in ((JS.name, js_src), (PAGE.name, page)):
     for dead in ("myFunction", "myInput"):
         check(dead not in src, f"{name}: dead search code {dead!r} is back")
+# The page's description, og:description and twitter:description name the project
+# by its current name, not RepoPulse (renamed 2026-11-18).
+for attr, key in (("name", "description"), ("property", "og:description"),
+                  ("name", "twitter:description")):
+    m = re.search(rf'<meta {attr}="{re.escape(key)}" content="([^"]*)"', page)
+    check(m is not None, f"{PAGE.name}: <meta {attr}={key!r}> is missing")
+    if m:
+        check("GitHub Analytics Data Pipeline" in m.group(1) and "RepoPulse" not in m.group(1),
+              f"{PAGE.name}: {key} must name 'GitHub Analytics Data Pipeline', not RepoPulse")
+
 check("<h1" not in html, "cards: card titles must not be h1")
 check("PlanCare" not in html and "tlamDson/plancare" not in html,
       "cards: old PlanCare name or plancare GitHub URL is back (repo is TravelPlan)")
