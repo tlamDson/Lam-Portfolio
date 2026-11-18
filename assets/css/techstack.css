@@ -334,3 +334,24 @@ html[light-mode="light"] .project_item a {
     width: 95vw;
   }
 }
+
+/* Skill groups (Technical Skills section of the resume) */
+.skill-group {
+  width: 100%;
+  margin-top: 2.5em;
+  text-align: center;
+}
+.skill-group-name {
+  font-weight: 700;
+  color: #4e00bb;
+}
+.skill-group-list {
+  max-width: 900px;
+  margin: 0.5em auto 0;
+  padding: 0 16px;
+}
+.skill-group-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
