@@ -26,7 +26,7 @@ Checks (Python 3, standard library only):
 python tests/check_seo.py
 ```
 
-The other scripts in `tests/` check the hero, project cards, experience entries, resume links and page speed.
+The other scripts in `tests/` check the hero, project cards, experience entries, that the resume stays off the site, and page speed.
 
 ## License
 
