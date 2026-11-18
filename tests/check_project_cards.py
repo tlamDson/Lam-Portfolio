@@ -18,13 +18,32 @@ errors = []
 
 # Expected links per card: label -> URL. A label missing here must not render.
 EXPECTED = {
+    "RepoPulse": {
+        "Live demo": "https://tlamdson.github.io/RepoPulse/",
+        "Code": "https://github.com/tlamDson/RepoPulse",
+    },
     "Operating System": {"Code": "https://github.com/tlamDson/Operating_System_OSV"},
     "Custom Shell": {"Code": "https://github.com/tlamDson/CustomShell"},
     "Dickinson Market": {},
-    "PlanCare": {
+    "TravelPlan": {
         "Live demo": "https://plancare-web-omega.vercel.app",
-        "Code": "https://github.com/tlamDson/plancare",
+        "Code": "https://github.com/tlamDson/TravelPlan",
     },
+}
+
+# Facts that must appear in the rendered text of a card (source: each repo's README
+# and the master resume). Matched against the visible text, so they cannot hide
+# in an unrendered field.
+FACTS = {
+    "RepoPulse": [
+        "hourly", "PySpark", "Delta Lake", "dbt", "GH Archive", "58 repos",
+        "0.94 s", "80% less data scanned", "1,492 MB to 290 MB",
+        "27 of 27", "0 false alarms", "17-51x faster than Spark",
+    ],
+    "TravelPlan": [
+        "over 10% of 200+ PRs", "under one in the last 50",
+        "0% to 61.6%", "494 unit", "107 integration",
+    ],
 }
 
 RUNNER = r"""
@@ -73,6 +92,8 @@ for name, src in ((JS.name, js_src), (PAGE.name, page)):
     for dead in ("myFunction", "myInput"):
         check(dead not in src, f"{name}: dead search code {dead!r} is back")
 check("<h1" not in html, "cards: card titles must not be h1")
+check("PlanCare" not in html and "tlamDson/plancare" not in html,
+      "cards: old PlanCare name or plancare GitHub URL is back (repo is TravelPlan)")
 check("dickinson.edu" not in html, "cards: Dickinson Market 404 preview link is back")
 
 cards = re.split(r'(?=<div class="column skill-card card")', html)[1:]
@@ -108,6 +129,15 @@ for card in cards:
     tags = re.search(r'<ul class="card-tags">(.*?)</ul>', card, re.S)
     check(tags and re.findall(r"<li>[^<]+</li>", tags.group(1)), f"{title}: needs tech tags")
 
+    # The numbers a visitor reads: each fact must be in the card's visible text.
+    text = strip(re.sub(r"</(p|li|h3)>", " ", body))
+    for fact in FACTS.get(title, []):
+        check(fact in text, f"{title}: rendered card text lacks {fact!r}")
+    metrics = re.search(r'<ul class="card-metrics">(.*?)</ul>', card, re.S)
+    if title in FACTS:
+        check(metrics and re.findall(r"<li>[^<]+</li>", metrics.group(1)),
+              f"{title}: needs a non-empty card-metrics list")
+
     # Links: only non-empty URLs, labelled, new tab, noopener.
     links = re.findall(r"<a\b([^>]*)>(.*?)</a>", card, re.S)
     got = {}
@@ -132,6 +162,12 @@ for css in CSS:
         if "card-body-text" in sel:
             check(not re.search(r"position\s*:\s*(absolute|fixed)", rules),
                   f"{css.name}: '{sel}' lifts the card text over the image")
+
+# The cards lead with RepoPulse.
+first = re.search(r'<h3 class="title">(.*?)</h3>', html, re.S)
+check(first and strip(first.group(1)) == "RepoPulse", "cards: RepoPulse must be the first card")
+check((ROOT / "assets/images/project-page/repopulse.jpg").stat().st_size <= 300 * 1024,
+      "repopulse.jpg is over 300 KB")
 
 # The page itself: one h1, no stray "add" text before the content.
 check(len(re.findall(r"<h1\b", page, re.I)) == 1, "projects.html: needs exactly one h1")

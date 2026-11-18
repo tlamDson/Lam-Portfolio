@@ -892,6 +892,13 @@ h1.projects_head {
   font-weight: bold;
 }
 
+.card .card-metrics {
+  margin: 0 0 0.75rem;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
 .card .card-tags {
   list-style: none;
   display: flex;

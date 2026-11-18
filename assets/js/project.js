@@ -6,6 +6,21 @@ const projectcards = document.querySelector(".projectcards");
 // Array of object for projects. A link is shown only when its URL is non-empty.
 const projects = [
   {
+    title: "RepoPulse",
+    cardImage: "assets/images/project-page/repopulse.jpg",
+    description:
+      "Data platform that measures open-source project health from public GitHub events: an hourly PySpark, Delta Lake and dbt pipeline on real GH Archive data for 58 repos, with a public dashboard.",
+    tags: ["Python", "PySpark", "Delta Lake", "dbt", "DuckDB", "MotherDuck", "GitHub Actions"],
+    result:
+      "Dashboard query 0.94 s with 80% less data scanned (1,492 MB to 290 MB).",
+    metrics: [
+      "27 of 27 injected data faults caught, 0 false alarms.",
+      "DuckDB 17-51x faster than Spark on the same transform.",
+    ],
+    Previewlink: "https://tlamdson.github.io/RepoPulse/",
+    Githublink: "https://github.com/tlamDson/RepoPulse",
+  },
+  {
     title: "Operating System",
     cardImage: "assets/images/project-page/os.png",
     description:
@@ -38,15 +53,18 @@ const projects = [
     Githublink: "",
   },
   {
-    title: "PlanCare",
+    title: "TravelPlan",
     cardImage: "assets/images/project-page/plancare.png",
     description:
       "Agentic travel planner monorepo with AI-powered itinerary generation: React web app, Express API, and BullMQ workers backed by MongoDB and Redis.",
     tags: ["TypeScript", "React", "Express", "MongoDB", "Redis", "BullMQ"],
     result:
       "Cut PR defects from over 10% of 200+ PRs to under one in the last 50.",
+    metrics: [
+      "Backend coverage 0% to 61.6% (494 unit + 107 integration tests).",
+    ],
     Previewlink: "https://plancare-web-omega.vercel.app",
-    Githublink: "https://github.com/tlamDson/plancare",
+    Githublink: "https://github.com/tlamDson/TravelPlan",
   },
 ];
 
@@ -59,7 +77,7 @@ const cardLink = (url, label) =>
 const showCards = () => {
   let output = "";
   projects.forEach(
-    ({ title, cardImage, description, tags, result, Previewlink, Githublink }) => {
+    ({ title, cardImage, description, tags, result, metrics = [], Previewlink, Githublink }) => {
       const links = cardLink(Previewlink, "Live demo") + cardLink(Githublink, "Code");
       output += `
         <div class="column skill-card card" style="margin: 15px" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-delay="300" data-aos-duration="600">
@@ -69,6 +87,7 @@ const showCards = () => {
             <p class="card-desc">${description}</p>
             <ul class="card-tags">${tags.map((t) => `<li>${t}</li>`).join("")}</ul>
             <p class="card-result">${result}</p>
+            ${metrics.length ? `<ul class="card-metrics">${metrics.map((m) => `<li>${m}</li>`).join("")}</ul>` : ""}
             ${links ? `<p class="card-links">${links}</p>` : ""}
           </div>
         </div>`;
