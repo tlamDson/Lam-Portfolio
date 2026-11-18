@@ -12,3 +12,4 @@ jobs:
         with:
           python-version: "3.x"
       - run: python tests/check_seo.py
+      - run: python tests/check_clean_urls.py

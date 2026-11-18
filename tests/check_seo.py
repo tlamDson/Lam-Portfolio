@@ -51,7 +51,7 @@ for name in pages:
     desc = one("description")[0]
     if not desc or len(desc) < 40 or "Liam Pham" not in desc:
         err(f"{name}: missing or generic meta description")
-    path = "" if name == "index.html" else name
+    path = "" if name == "index.html" else name[:-5]  # cleanUrls: /projects, not /projects.html
     url = f"{BASE}/{path}"
     if h.links.get("canonical") != [url]:
         err(f"{name}: canonical should be {url}, got {h.links.get('canonical')}")

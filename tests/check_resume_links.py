@@ -55,8 +55,8 @@ for page, where in (("assets/js/app.js", "navbar"), ("index.html", "home hero"))
 
 # The navbar's Skills link had a doubled closing quote.
 nav = (ROOT / "assets/js/app.js").read_text(encoding="utf-8")
-check('href="techstack.html"">' not in nav, 'app.js: href="techstack.html"" double quote is back')
-check('href="techstack.html"' in nav, "app.js: Skills link missing")
+check('href="/techstack"">' not in nav, 'app.js: href="/techstack"" double quote is back')
+check('href="/techstack"' in nav, "app.js: Skills link missing")
 
 if errors:
     print("\n".join("FAIL: " + e for e in errors))

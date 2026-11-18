@@ -100,7 +100,7 @@ cards = (ROOT / "assets/js/project.js").read_text(encoding="utf-8")
 names = [squash(t["name"]) for t in home.tiles]
 check(names == [n for n, _, _ in TILES], f"featured projects must be {[n for n, _, _ in TILES]}; got {names}")
 for t, (name, stat, note) in zip(home.tiles, TILES):
-    check(t["href"] == "projects.html", f"{name} tile must link to projects.html, got {t['href']!r}")
+    check(t["href"] == "/projects", f"{name} tile must link to /projects, got {t['href']!r}")
     check(squash(t["stat"]) == stat, f"{name} tile stat must be {stat!r}, got {squash(t['stat'])!r}")
     check(squash(t["note"]) == note, f"{name} tile note must be {note!r}, got {squash(t['note'])!r}")
     rest = squash(t["text"]).replace(name, "", 1)

@@ -1,52 +1,33 @@
-# Animated Portfolio Website
+# Liam Pham — Portfolio
 
-![GitHub repo size](https://img.shields.io/github/repo-size/xeventech/animated-portfolio-website)
-[![GitHub stars](https://img.shields.io/github/stars/xeventech/animated-portfolio-website?style=social)](https://github.com/XevenTech/animated-portfolio-website/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/xeventech/animated-portfolio-website?style=social)](https://github.com/XevenTech/3d-portfolio-website/forks)
-[![YouTube Video Views](https://img.shields.io/youtube/views/7dWL5GivD8k?style=social)](https://youtu.be/7dWL5GivD8k)
+Live site: https://lamportfolio.vercel.app
 
-A fully responsive animated personal portfolio website, responsive for all devices.
+Personal portfolio of Liam Pham, software engineer and Computer Science and Mathematics student at Dickinson College. Pages: Home, Experience, Projects, Research, Education, Skills.
 
-## Demo
+## Stack
 
-### Home Page:
-![Home Page Demo](https://github.com/XevenTech/projects_snapshots/blob/main/animated-portfolio-website/Home_Page.gif?raw=true "Home Page Demo")
-### Experience Page:
-![Experience Page Demo](https://github.com/XevenTech/projects_snapshots/blob/main/animated-portfolio-website/Experience_Page.gif?raw=true "Experience Page Demo")
-### Project Page:
-![Project Page Demo](https://github.com/XevenTech/projects_snapshots/blob/main/animated-portfolio-website/Project_Page.gif?raw=true "Project Page Demo")
-### Research Page:
-![Research Page Demo](https://github.com/XevenTech/projects_snapshots/blob/main/animated-portfolio-website/Research_Page.gif?raw=true "Research Page Demo")
-### Education Page:
-![Education Page Demo](https://github.com/XevenTech/projects_snapshots/blob/main/animated-portfolio-website/Education_Page.gif?raw=true "Education Page Demo")
+- Static HTML, CSS and jQuery 3.5 (no build step)
+- Bootstrap 4, Font Awesome and particles.js, loaded from CDNs
+- Hosted on Vercel (`vercel.json` turns on clean URLs such as `/projects` and sets cache headers)
 
-## Prerequisites
+## Run locally
 
-Before you begin, ensure you have met the following requirements:
+Needs [Node.js](https://nodejs.org/). From the repo root:
 
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
-
-## Installing Portfolio
-
-To install, follow these steps:
-
-Linux and macOS:
-
-```bash
-sudo git clone https://github.com/xeventech/animated-portfolio-website.git
+```powershell
+npx serve .
 ```
 
-Windows:
+Then open the address it prints. `serve` handles clean URLs the same way Vercel does, so the nav links work. A plain `python -m http.server` also serves the pages, but links without `.html` (like `/projects`) will 404 there.
 
-```bash
-git clone https://github.com/xeventech/animated-portfolio-website.git
+Checks (Python 3, standard library only):
+
+```powershell
+python tests/check_seo.py
 ```
 
-## Watch Video Tutorial
+The other scripts in `tests/` check the hero, project cards, experience entries, resume links and page speed.
 
-[![Watch Video](https://github.com/XevenTech/projects_snapshots/blob/main/animated-portfolio-website/thumbnail.png?raw=true "Play")](https://youtu.be/7dWL5GivD8k)
+## License
 
-
-## Thank you for reading, here's a cat:
-
-![Cat](https://github.com/XevenTech/xeventech/blob/main/cat.gif?raw=true "Thank You")
+MIT, see [LICENSE](LICENSE).
