@@ -108,10 +108,10 @@ for card in cards:
     check(title in EXPECTED, f"cards: unexpected card {title!r}")
     want = EXPECTED.get(title, {})
 
-    # B02: the image comes first and is empty; all text sits in the block under it.
+    # B02: the image (a lazy-loaded <img>) comes first; all text sits in the block under it.
     order = re.match(
         r'<div class="column skill-card card"[^>]*>\s*'
-        r'<div class="wrapper"[^>]*background: url\(([^)]+)\)[^>]*></div>\s*'
+        r'<div class="wrapper"[^>]*>\s*<img src="([^"]+)"[^>]*loading="lazy"[^>]*>\s*</div>\s*'
         r'<div class="card-body-text">',
         card,
     )
@@ -166,8 +166,8 @@ for css in CSS:
 # The cards lead with RepoPulse.
 first = re.search(r'<h3 class="title">(.*?)</h3>', html, re.S)
 check(first and strip(first.group(1)) == "RepoPulse", "cards: RepoPulse must be the first card")
-check((ROOT / "assets/images/project-page/repopulse.jpg").stat().st_size <= 300 * 1024,
-      "repopulse.jpg is over 300 KB")
+check((ROOT / "assets/images/project-page/repopulse.webp").stat().st_size <= 300 * 1024,
+      "repopulse.webp is over 300 KB")
 
 # The page itself: one h1, no stray "add" text before the content.
 check(len(re.findall(r"<h1\b", page, re.I)) == 1, "projects.html: needs exactly one h1")

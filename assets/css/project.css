@@ -866,6 +866,17 @@ h1.projects_head {
   min-height: 14rem;
 }
 
+.card .wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .card.skill-card {
   background-color: transparent;
 }

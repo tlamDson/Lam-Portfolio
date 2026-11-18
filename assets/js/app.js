@@ -262,13 +262,6 @@ $(function () {
 
 // Navbar current page highlight
 
-let loader = document.querySelector(".loader-container");
-
-window.addEventListener("load", vanish);
-
-function vanish() {
-  loader.classList.add("disappear");
-}
 $(function () {
   $("a.nav-link").each(function () {
     if ($(this).prop("href") == window.location.href) {
@@ -358,11 +351,16 @@ window.addEventListener("storage", function () {
 });
 
 // Function to remove scroll bar during preload
-$(window).on("load", function () {
+// Plain DOM only: research.html loads jQuery slim, which has no fadeOut().
+window.addEventListener("load", function () {
+  document.body.style.overflow = "visible";
+  var loader = document.querySelector(".loader-container");
+  if (!loader) return;
+  loader.style.transition = "opacity 200ms ease-out";
+  loader.style.opacity = "0";
   setTimeout(function () {
-    $(".no-scroll-preload").css("overflow", "visible");
-  }, 1000);
-  $(".loader-container").fadeOut(2500);
+    loader.style.display = "none";
+  }, 200);
 });
 
 //send button animation

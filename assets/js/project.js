@@ -7,7 +7,7 @@ const projectcards = document.querySelector(".projectcards");
 const projects = [
   {
     title: "RepoPulse",
-    cardImage: "assets/images/project-page/repopulse.jpg",
+    cardImage: "assets/images/project-page/repopulse.webp",
     description:
       "Data platform that measures open-source project health from public GitHub events: an hourly PySpark, Delta Lake and dbt pipeline on real GH Archive data for 58 repos, with a public dashboard.",
     tags: ["Python", "PySpark", "Delta Lake", "dbt", "DuckDB", "MotherDuck", "GitHub Actions"],
@@ -22,7 +22,7 @@ const projects = [
   },
   {
     title: "Operating System",
-    cardImage: "assets/images/project-page/os.png",
+    cardImage: "assets/images/project-page/os.webp",
     description:
       "A UNIX-like kernel implementing core system calls (fork, wait, exit) and thread-safe inter-process communication using block-based bounded queues.",
     tags: ["C", "x86-64", "POSIX", "QEMU"],
@@ -33,7 +33,7 @@ const projects = [
   },
   {
     title: "Custom Shell",
-    cardImage: "assets/images/project-page/shell.png",
+    cardImage: "assets/images/project-page/shell.webp",
     description:
       "A custom command-line interpreter in C that manages process execution via fork-exec patterns, handles signal interrupts, and supports built-in navigation.",
     tags: ["C", "POSIX", "Make"],
@@ -44,7 +44,7 @@ const projects = [
   },
   {
     title: "Dickinson Market",
-    cardImage: "assets/images/project-page/dsonmarket-site.png",
+    cardImage: "assets/images/project-page/dsonmarket-site.webp",
     description:
       "Led a team of 6 developers to build an online marketplace for Dickinson College.",
     tags: ["Next.js"],
@@ -54,7 +54,7 @@ const projects = [
   },
   {
     title: "TravelPlan",
-    cardImage: "assets/images/project-page/plancare.png",
+    cardImage: "assets/images/project-page/plancare.webp",
     description:
       "Agentic travel planner monorepo with AI-powered itinerary generation: React web app, Express API, and BullMQ workers backed by MongoDB and Redis.",
     tags: ["TypeScript", "React", "Express", "MongoDB", "Redis", "BullMQ"],
@@ -81,7 +81,7 @@ const showCards = () => {
       const links = cardLink(Previewlink, "Live demo") + cardLink(Githublink, "Code");
       output += `
         <div class="column skill-card card" style="margin: 15px" data-aos="zoom-in-up" data-aos-easing="linear" data-aos-delay="300" data-aos-duration="600">
-          <div class="wrapper" role="img" aria-label="${title} screenshot" style="background: url(${cardImage}) center / cover no-repeat;"></div>
+          <div class="wrapper"><img src="${cardImage}" alt="${title} screenshot" width="800" height="500" loading="lazy" decoding="async"></div>
           <div class="card-body-text">
             <h3 class="title">${title}</h3>
             <p class="card-desc">${description}</p>

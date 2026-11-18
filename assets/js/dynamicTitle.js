@@ -11,7 +11,7 @@ window.onload = function () {
   function toggle(isPageActive) {
     if (isPageActive) {
       document.title = pageTitle;
-      favicon.href = "./assets/avatar.jpg";
+      favicon.href = "./assets/avatar.webp";
     } else {
       document.title = attentionMessage;
       favicon.href = "./assets/images/folded.png";
