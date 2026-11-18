@@ -18,9 +18,9 @@ errors = []
 
 # Expected links per card: label -> URL. A label missing here must not render.
 EXPECTED = {
-    "RepoPulse": {
-        "Live demo": "https://tlamdson.github.io/RepoPulse/",
-        "Code": "https://github.com/tlamDson/RepoPulse",
+    "GitHub Analytics Data Pipeline": {
+        "Live demo": "https://tlamdson.github.io/github-analytics-data-pipeline/",
+        "Code": "https://github.com/tlamDson/github-analytics-data-pipeline",
     },
     "Operating System": {"Code": "https://github.com/tlamDson/Operating_System_OSV"},
     "Custom Shell": {"Code": "https://github.com/tlamDson/CustomShell"},
@@ -35,7 +35,7 @@ EXPECTED = {
 # and the master resume). Matched against the visible text, so they cannot hide
 # in an unrendered field.
 FACTS = {
-    "RepoPulse": [
+    "GitHub Analytics Data Pipeline": [
         "hourly", "PySpark", "Delta Lake", "dbt", "GH Archive", "58 repos",
         "0.94 s", "80% less data scanned", "1,492 MB to 290 MB",
         "27 of 27", "0 false alarms", "17-51x faster than Spark",
@@ -163,9 +163,9 @@ for css in CSS:
             check(not re.search(r"position\s*:\s*(absolute|fixed)", rules),
                   f"{css.name}: '{sel}' lifts the card text over the image")
 
-# The cards lead with RepoPulse.
+# The cards lead with GitHub Analytics Data Pipeline.
 first = re.search(r'<h3 class="title">(.*?)</h3>', html, re.S)
-check(first and strip(first.group(1)) == "RepoPulse", "cards: RepoPulse must be the first card")
+check(first and strip(first.group(1)) == "GitHub Analytics Data Pipeline", "cards: GitHub Analytics Data Pipeline must be the first card")
 check((ROOT / "assets/images/project-page/repopulse.webp").stat().st_size <= 300 * 1024,
       "repopulse.webp is over 300 KB")
 
