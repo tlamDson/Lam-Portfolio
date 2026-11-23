@@ -179,6 +179,13 @@ async function run(name, staleCss) {
     await b.send("Page.navigate", { url: BASE });
     await Promise.race([loaded, sleep(15000)]);
     await sleep(2500); // preloader fade and the first typed word
+    // particles.js comes from a CDN; wait for its canvas before measuring.
+    const ready = "(() => { const c = document.querySelector('#particles-js canvas'); return !!c && c.getBoundingClientRect().height >= innerHeight; })()";
+    for (let i = 0; i < 50; i++) {
+      const r = await b.send("Runtime.evaluate", { expression: ready, returnByValue: true });
+      if (r.result.value) break;
+      await sleep(200);
+    }
     const { result } = await b.send("Runtime.evaluate", { expression: MEASURE, returnByValue: true });
     const m = result.value;
     if (process.env.SHOT_DIR) {
