@@ -601,31 +601,17 @@ a:hover {
   }
 }
 
-/* Home hero (C02): flows from the top so a tall hero never gets cut off */
+/* Pitch and featured projects (C02), below the template's first screen */
 .hero {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
   max-width: 820px;
-  padding: 100px 16px 40px;
+  margin: 0 auto;
+  padding: 40px 16px 0;
   text-align: center;
   font-size: 18px;
 }
 
-.hero-name {
-  margin: 0 0 16px;
-  font-size: 44px;
-  font-weight: bold;
-}
-
-.hero-avatar {
-  object-fit: cover;
-}
-
 .hero-line {
-  margin: 16px auto 24px;
+  margin: 0 auto 24px;
   max-width: 620px;
   font-size: 20px;
 }
@@ -677,9 +663,6 @@ a:hover {
 }
 
 @media only screen and (max-width: 600px) {
-  .hero-name {
-    font-size: 34px;
-  }
   .hero-line {
     font-size: 17px;
   }

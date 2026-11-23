@@ -77,50 +77,35 @@
       </section>
     </div>
     <center>
-      <!-- Home Section -->
-      <div class="hero">
-        <h1 class="hero-name">Liam Pham</h1>
-        <img
-          src="assets/avatar.webp"
-          alt="Portrait of Liam Pham"
-          class="rounded-circle hero-avatar"
-          height="140"
-          width="140"
-        />
-        <p class="hero-line">
-          CS and Math student at Dickinson College, seeking software
-          engineering internships in backend, data and AI infrastructure.
-        </p>
-        <ul class="hero-projects">
-          <li>
-            <a href="/projects">
-              <span class="hero-project-name">GitHub Analytics Data Pipeline</span>
-              <span class="hero-project-stat">80% less data scanned</span>
-              <span class="hero-project-note"
-                >Hourly ELT pipeline on GitHub event data</span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="/projects">
-              <span class="hero-project-name">TravelPlan</span>
-              <span class="hero-project-stat">61.6% backend test coverage</span>
-              <span class="hero-project-note"
-                >Gemini-powered travel planner, web and mobile</span
-              >
-            </a>
-          </li>
-          <li>
-            <a href="/projects">
-              <span class="hero-project-name">Operating System</span>
-              <span class="hero-project-stat">500 fork/exit cycles</span>
-              <span class="hero-project-note"
-                >Process table back to its exact baseline</span
-              >
-            </a>
-          </li>
-        </ul>
+      <!-- Home Section: the template's first screen -->
+      <div class="text col-sm-6" style="margin-top: 140px">
+        Hi
+        <span class="wave"
+          ><img src="assets/images/hand.webp" alt="" width="35" height="35" /></span
+        >&nbsp;, I'm
+        <h1
+          class="header"
+          style="display: inline; margin: 0; font-size: inherit; font-weight: bold; line-height: inherit"
+        >Liam Pham</h1>
         <div class="center">
+          <div>
+            <img
+              src="assets/avatar.webp"
+              alt="Portrait of Liam Pham"
+              class="rounded-circle"
+              height="200"
+              width="200"
+              style="object-fit: cover"
+            />
+          </div>
+          <br />
+          <span style="display: inline"
+            >I am into
+            <span
+              class="animated-text"
+              data-words="Backend Development, Cloud Computing, Databases, DevOps, Machine Learning"
+            ></span>
+          </span>
           <div>
             <div class="social-icons">
               <a
@@ -182,6 +167,43 @@
         </div>
       </div>
     </center>
+
+    <!-- Below the first screen: pitch and featured projects -->
+    <section class="hero">
+      <p class="hero-line">
+        CS and Math student at Dickinson College, seeking software
+        engineering internships in backend, data and AI infrastructure.
+      </p>
+      <ul class="hero-projects">
+        <li>
+          <a href="/projects">
+            <span class="hero-project-name">GitHub Analytics Data Pipeline</span>
+            <span class="hero-project-stat">80% less data scanned</span>
+            <span class="hero-project-note"
+              >Hourly ELT pipeline on GitHub event data</span
+            >
+          </a>
+        </li>
+        <li>
+          <a href="/projects">
+            <span class="hero-project-name">TravelPlan</span>
+            <span class="hero-project-stat">61.6% backend test coverage</span>
+            <span class="hero-project-note"
+              >Gemini-powered travel planner, web and mobile</span
+            >
+          </a>
+        </li>
+        <li>
+          <a href="/projects">
+            <span class="hero-project-name">Operating System</span>
+            <span class="hero-project-stat">500 fork/exit cycles</span>
+            <span class="hero-project-note"
+              >Process table back to its exact baseline</span
+            >
+          </a>
+        </li>
+      </ul>
+    </section>
 
     <br /><br /><br />
     <!-- Dynamic footer section -->
